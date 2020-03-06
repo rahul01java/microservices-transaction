@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.4.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>my-demo-order-service</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>my-demo-order-service</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+ <repositories>
+        <repository>
+            <id>jcenter</id>
+            <name>jcenter</name>
+            <url>http://jcenter.bintray.com</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>eventuate-tram-rc</id>
+            <url>https://dl.bintray.com/eventuateio-oss/eventuate-maven-rc</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>eventuate-tram-release</id>
+            <url>https://dl.bintray.com/eventuateio-oss/eventuate-maven-release</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+	<dependencies>
+	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+       <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.eventuate.tram.sagas/eventuate-jpa-sagas-framework -->
+		
+		<!-- <dependency>
+		     <groupId>io.eventuate.tram.core</groupId>
+			  <artifactId>eventuate-tram-consumer-kafka</artifactId>
+			  <version>0.22.0.RC5</version>
+		</dependency> -->
+		
+		<!-- <dependency>
+		   <groupId>io.eventuate.tram.sagas</groupId>
+		  <artifactId>eventuate-tram-sagas-orchestration</artifactId>
+		  <version>0.12.0.RC7</version>
+		</dependency> -->
+		
+		<!-- <dependency>
+		  <groupId>io.eventuate.common.messaging</groupId>
+		  <artifactId>eventuate-messaging-partition-management</artifactId>
+		  <version>0.2.0.RELEASE</version>
+		</dependency> -->
+		
+		<!-- <dependency>
+		   <groupId>io.eventuate.messaging.kafka</groupId>
+		  <artifactId>eventuate-messaging-kafka-basic-consumer</artifactId>
+		  <version>0.3.0.RELEASE</version>
+		</dependency> -->
+	<!-- 	
+		<dependency>
+		   <groupId>io.eventuate.messaging.kafka</groupId>
+		  <artifactId>eventuate-messaging-kafka-common</artifactId>
+		  <version>0.3.0.RELEASE</version>
+		</dependency> -->
+		
+	<!-- 	<dependency>
+		  <groupId>io.eventuate.tram.core</groupId>
+		  <artifactId>eventuate-tram-events</artifactId>
+		  <version>0.22.0.RC7</version>
+		</dependency> -->
+		
+		
+	<!-- 	<dependency>
+		  <groupId>io.eventuate.tram.core</groupId>
+		  <artifactId>eventuate-tram-messaging-producer-common</artifactId>
+		  <version>0.22.0.RC5</version>
+		</dependency> -->
+		
+		<!-- <dependency>
+		  <groupId>io.eventuate.tram.core</groupId>
+		  <artifactId>eventuate-tram-consumer-common</artifactId>
+		  <version>0.22.0.RC5</version>
+		</dependency> -->
+		
+	<!-- 	<dependency>
+		   <groupId>io.eventuate.tram.core</groupId>
+			  <artifactId>eventuate-tram-commands</artifactId>
+			  <version>0.22.0.RC7</version>
+		</dependency> -->
+		
+		<!-- <dependency>
+		   <groupId>io.eventuate.tram.core</groupId>
+		  <artifactId>eventuate-tram-messaging</artifactId>
+		  <version>0.22.0.RC7</version>
+		</dependency> -->
+	<!-- 	
+		<dependency>
+		  <groupId>io.eventuate.common</groupId>
+		  <artifactId>eventuate-common-coordination-leadership</artifactId>
+		  <version>0.6.0.RELEASE</version>
+		</dependency>
+		 -->
+		<dependency>
+		<!-- common,orche.participant -->
+		<groupId>io.eventuate.tram.sagas</groupId>
+		  <artifactId>eventuate-jpa-sagas-framework</artifactId>
+		  <version>0.12.0.RC7</version>
+		</dependency>
+		
+		<dependency>
+		     <groupId>io.eventuate.tram.sagas</groupId>
+			  <artifactId>eventuate-tram-sagas-simple-dsl</artifactId>
+			  <version>0.12.0.RC7</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>io.eventuate.tram.core</groupId>
+		  <artifactId>eventuate-tram-jdbc-kafka</artifactId>
+		  <version>0.22.0.RC5</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		
+		<!-- <dependency>
+		  <groupId>io.eventuate.common</groupId>
+		  <artifactId>eventuate-common-jdbc</artifactId>
+		  <version>0.8.3.RELEASE</version>
+		</dependency> -->
+		<!-- https://mvnrepository.com/artifact/io.eventuate.tram.core/eventuate-tram-cdc-mysql-service -->
+
+
+		<!-- 	
+		<dependency>
+		   <groupId>io.eventuate.tram.core</groupId>
+		  <artifactId>eventuate-tram-consumer-jdbc</artifactId>
+		  <version>0.22.0.RC5</version>
+		</dependency> -->
+		
+	<!-- 	<dependency>
+		   <groupId>io.eventuate.tram.core</groupId>
+			  <artifactId>eventuate-tram-producer-jdbc</artifactId>
+			  <version>0.22.0.RC5</version>
+		</dependency> -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+		<!-- Swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

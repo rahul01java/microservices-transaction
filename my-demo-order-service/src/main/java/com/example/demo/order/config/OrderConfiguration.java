@@ -1,0 +1,29 @@
+package com.example.demo.order.config;
+
+import io.eventuate.tram.sagas.orchestration.SagaInstanceFactory;
+import io.eventuate.tram.sagas.orchestration.SagaOrchestratorConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import com.example.demo.create.saga.CreateOrderSaga;
+import com.example.demo.orderdetail.OrderRepository;
+import com.example.demo.service.OrderService;
+
+@Configuration
+@Import(SagaOrchestratorConfiguration.class)
+public class OrderConfiguration {
+
+  @Bean
+  public OrderService orderService(OrderRepository orderRepository, SagaInstanceFactory sagaInstanceFactory, CreateOrderSaga createOrderSaga) {
+    return new OrderService(orderRepository, sagaInstanceFactory, createOrderSaga);
+  }
+
+  @Bean
+  public CreateOrderSaga createOrderSaga(OrderRepository orderRepository) {
+    return new CreateOrderSaga(orderRepository);
+  }
+
+}
